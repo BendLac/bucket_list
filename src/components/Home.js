@@ -10,6 +10,8 @@ const Home = () => {
 
     //State stuff
     const [inputTitle, setInputTitle] = useState("");
+    const [itemPlace, setItemPlace] = useState("");
+    const [itemDescription, setItemDescription] = useState("");
     const [elements, setElements] = useState([]);
     const [status, setStatus] = useState("all");
     const [filteredElements, setFilteredElements] = useState([]);
@@ -47,6 +49,7 @@ const Home = () => {
         }
     };
 
+    //Get the local storage elements
     const getLocalElements = () => {
         if(localStorage.getItem("elements") === null) {
             localStorage.setItem("elements", JSON.stringify([]));
@@ -54,6 +57,11 @@ const Home = () => {
             let elementLocal = JSON.parse(localStorage.getItem("elements"));
             setElements(elementLocal);
         }
+    }
+
+    //Status handler: completed / uncompleted
+    const statusHandler = (e) => {
+        setStatus(e.target.value);
     }
 
     return (
@@ -66,11 +74,23 @@ const Home = () => {
                     New Item
             </button>
 
+            <div className="select">
+                <select onChange={statusHandler} className="filter-element">
+                    <option value="all">All</option>
+                    <option value="completed">Completed</option>
+                    <option value="uncompleted">Uncompleted</option>
+                </select>
+            </div>
+
             <Form 
                 elements={elements} 
-                setElements={setElements} 
+                setElements={setElements}
                 inputTitle={inputTitle} 
                 setInputTitle={setInputTitle}
+                itemPlace={itemPlace}
+                setItemPlace={setItemPlace}
+                itemDescription={itemDescription}
+                setItemDescription={setItemDescription}
                 setStatus={setStatus}
             />
             <ItemList 
@@ -78,7 +98,7 @@ const Home = () => {
                 elements={elements}
                 filteredElements={filteredElements}
             />
-            <ItemCard/>
+{/*             <ItemCard/ */}       
         </div>
     )
 }

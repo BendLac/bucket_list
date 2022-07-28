@@ -13,6 +13,8 @@ const ItemList = ({elements, setElements, filteredElements}) => {
                     key={element.id}
                     element={element}
                     text={element.text}
+                    place={element.place}
+                    description={element.description}
                 />
             ))}
         </div>

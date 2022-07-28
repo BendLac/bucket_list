@@ -12,8 +12,12 @@ header {
     font-size: 2rem;
     letter-spacing: 1px;
     width: fit-content;
-    display: flex;
     margin: auto;
+}
+
+button {
+    cursor: pointer;
+    border-radius: 10px;  
 }
 
 .redirectButton {
@@ -22,49 +26,87 @@ header {
     /*background-image: linear-gradient(100deg, #1FD1F9 0%, #B621FE 100%);*/
     opacity: 0.6;
     border: solid black 2px;
-    display: flex;
-    margin: auto;
-}
-
-button {
-    cursor: pointer;
+    display: block;
+    font-size: 1.2rem;
+    margin: 20px auto;
+    text-align: center;
+    line-height: 25px;
 }
 
 form {
-    display: inline-block;
+    margin: 30px auto;
+    text-align: center;
 }
 
-.inputField {
+.formButton {
+  width: 100px;
+  height: 30px;
+  border: 1px solid black;
+  margin: 20px auto;
+  text-align: center;
+  line-height: 30px;  
+}
 
+.formButton:hover {
+  
 }
 
 .container {
-
+  display: flex;
 }
 
+.list {
+  list-style: none;
+  text-align: center;
+}
 
+.element {
+  min-width: 30%;
+  min-height: 20%;
+  margin: 0.5rem;
+  background: white;
+  font-size: 1.5rem;
+  color: black;
 
+  border-radius: 20px;
+  display: inline-block;
+  padding: 0.5rem;
+  vertical-align: middle;
 
-.todo {
-    margin: 0.5rem;
-    background: white;
-    font-size: 1.5rem;
-    color: black;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: all 1s ease;
+  box-shadow: 20px 40px 18px -8px rgba(0, 0, 0, 0.1);
   }
 
-.todo-list {
-    min-width: 30%;
-    list-style: none;
+  .element li{
+    
   }
 
-.todo li {
-    flex: 1;
+  .element-item {
+    float: right;
   }
 
-  .todo-item {
-    padding: 0rem 0.5rem;
+  .complete-btn,  .trash-btn {
+    margin-top: 1rem;
+    border: none;
+    padding: 1rem;
+    font-size: 1rem;
+    color: white;
+    position: relative; 
+    text-align: center;
+  }
+
+  .complete-btn {
+    background: rgb(0, 212, 60);
+  }
+  .trash-btn {
+    margin-left: 0.7rem;
+    background: rgb(255, 34, 34);
+  }
+
+  .completed {
+    text-decoration: line-through;
+    opacity: 0.5;
+  }
+  
+  .complete-btn:hover, .trash-btn:hover {
+    opacity: 0.8;
   }
